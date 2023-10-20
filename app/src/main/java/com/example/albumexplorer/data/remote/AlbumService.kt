@@ -12,7 +12,6 @@ interface AlbumService {
     suspend fun getUsers(): Response<List<UsersDto>>
     @GET("/albums")
     suspend fun getAlbums(@Query("userId") userId: Int):Response<List<AlbumsItemDto>>
-
     @GET("/photos")
     suspend fun getPhotos(@Query("albumId") albumId: Int): Response<List<PhotosItemDto>>
 }
