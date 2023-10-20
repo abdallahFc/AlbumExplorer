@@ -1,6 +1,6 @@
 package com.example.albumexplorer.data.remote.model
 
-data class Address(
+data class AddressDto(
     val city: String?,
     val geo: Geo?,
     val street: String?,
