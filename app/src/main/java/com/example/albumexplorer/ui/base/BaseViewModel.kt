@@ -3,6 +3,10 @@ package com.example.albumexplorer.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.albumexplorer.data.remote.EmptyResponseException
+import com.example.albumexplorer.data.remote.NetworkErrorException
+import com.example.albumexplorer.data.remote.ServerErrorException
+import com.example.albumexplorer.data.remote.UnknownErrorException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -28,16 +32,13 @@ abstract class BaseViewModel<T, E>(initialState: T) : ViewModel() {
             try {
                 val result = function()
                 onSuccess(result)
-//            } catch (exception: NetworkErrorException) {
-//                onError(ErrorHandler.NetworkError(exception.message.toString()))
-//            } catch (exception: EmptyResponseException) {
-//                onError(ErrorHandler.EmptyResponse(exception.message.toString()))
-//            } catch (exception: ServerErrorException) {
-//                onError(ErrorHandler.ServerError(exception.message.toString()))
-//            } catch (exception: UnknownErrorException) {
-//                onError(ErrorHandler.UnknownError(exception.message.toString()))
-//            }
-            }catch(exception:Exception){
+            } catch (exception: NetworkErrorException) {
+                onError(ErrorHandler.NetworkError(exception.message.toString()))
+            } catch (exception: EmptyResponseException) {
+                onError(ErrorHandler.EmptyResponse(exception.message.toString()))
+            } catch (exception: ServerErrorException) {
+                onError(ErrorHandler.ServerError(exception.message.toString()))
+            } catch (exception: UnknownErrorException) {
                 onError(ErrorHandler.UnknownError(exception.message.toString()))
             }
         }

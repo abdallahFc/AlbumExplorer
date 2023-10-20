@@ -6,8 +6,9 @@ import com.example.albumexplorer.domain.model.Address
 import com.example.albumexplorer.domain.model.User
 
 fun UsersDto.toUser()=User(
-    username = username ?: "",
-    address=address?.toAddress() ?:Address.createDefault()
+    id = id,
+    username = name ?: "",
+    address = address?.toAddress() ?: Address.createDefault()
 )
 fun AddressDto.toAddress()=Address(
     city=city ?: "",

@@ -5,7 +5,11 @@ import com.example.albumexplorer.data.remote.EmptyResponseException
 import com.example.albumexplorer.data.remote.NetworkErrorException
 import com.example.albumexplorer.data.remote.ServerErrorException
 import com.example.albumexplorer.data.remote.UnknownErrorException
+import com.example.albumexplorer.data.remote.mapper.toAlbum
+import com.example.albumexplorer.data.remote.mapper.toPhoto
 import com.example.albumexplorer.data.remote.mapper.toUser
+import com.example.albumexplorer.domain.model.Album
+import com.example.albumexplorer.domain.model.Photo
 import com.example.albumexplorer.domain.model.User
 import com.example.albumexplorer.domain.repo.AlbumRepository
 import retrofit2.Response
@@ -16,8 +20,17 @@ class AlbumRepositoryImpl @Inject constructor(
     private val apiService: AlbumService
 ) : AlbumRepository {
     override suspend fun getUsers(): List<User> {
-        return wrapResponse { apiService.getUsers() }.map { it.toUser()}
+        return wrapResponse { apiService.getUsers() }.map { it.toUser() }
     }
+
+    override suspend fun getAlbums(id: Int): List<Album> {
+        return wrapResponse { apiService.getAlbums(id) }.map { it.toAlbum() }
+    }
+
+    override suspend fun getPhotos(id: Int): List<Photo> {
+        return wrapResponse { apiService.getPhotos(id) }.map { it.toPhoto() }
+    }
+
     private inline fun <reified T> wrapResponse(
         function: () -> Response<T>
     ): T {
@@ -40,7 +53,6 @@ class AlbumRepositoryImpl @Inject constructor(
             throw UnknownErrorException(ERROR_UNEXPECTED)
         }
     }
-
 
     companion object {
         const val ERROR_UNKNOWN_SERVER = "server error"

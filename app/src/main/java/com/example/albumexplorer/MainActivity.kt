@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.example.albumexplorer.ui.feature.profile.ProfileScreen
 import com.example.albumexplorer.ui.navigation.LocalNavigationProvider
 import com.example.albumexplorer.ui.navigation.MainNavGraph
 import com.example.albumexplorer.ui.theme.AlbumExplorerTheme
@@ -27,7 +28,8 @@ class MainActivity : ComponentActivity() {
                             .fillMaxSize()
                     )
                     {
-                        //MainNavGraph()
+                        MainNavGraph()
+                        //ProfileScreen()
                     }
                 }
             }

@@ -11,26 +11,26 @@ val Typography = Typography(
     headlineMedium = TextStyle(
         fontFamily = workSans,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 18.sp,
+        fontSize = 20.sp,
     ),
     bodyLarge = TextStyle(
         fontFamily = workSans,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 16.sp,
+        fontSize = 18.sp,
     ),
     bodyMedium = TextStyle(
         fontFamily = workSans,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
+        fontSize = 16.sp,
     ),
     bodySmall = TextStyle(
         fontFamily = workSans,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp,
+        fontSize = 14.sp,
     ),
     titleMedium = TextStyle(
         fontFamily = workSans,
         fontWeight = FontWeight.Medium,
-        fontSize = 10.sp,
+        fontSize = 12.sp,
     )
 )
