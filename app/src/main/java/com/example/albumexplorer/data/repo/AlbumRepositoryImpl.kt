@@ -1,10 +1,10 @@
 package com.example.albumexplorer.data.repo
 
 import com.example.albumexplorer.data.remote.AlbumService
-import com.example.albumexplorer.data.remote.EmptyResponseException
-import com.example.albumexplorer.data.remote.NetworkErrorException
-import com.example.albumexplorer.data.remote.ServerErrorException
-import com.example.albumexplorer.data.remote.UnknownErrorException
+import com.example.albumexplorer.domain.util.EmptyResponseException
+import com.example.albumexplorer.domain.util.NetworkErrorException
+import com.example.albumexplorer.domain.util.ServerErrorException
+import com.example.albumexplorer.domain.util.UnknownErrorException
 import com.example.albumexplorer.data.remote.mapper.toAlbum
 import com.example.albumexplorer.data.remote.mapper.toPhoto
 import com.example.albumexplorer.data.remote.mapper.toUser

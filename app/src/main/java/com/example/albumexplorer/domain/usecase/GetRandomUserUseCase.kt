@@ -1,6 +1,6 @@
 package com.example.albumexplorer.domain.usecase
 
-import com.example.albumexplorer.data.remote.EmptyResponseException
+import com.example.albumexplorer.domain.util.EmptyResponseException
 import com.example.albumexplorer.domain.model.User
 import com.example.albumexplorer.domain.repo.AlbumRepository
 import javax.inject.Inject

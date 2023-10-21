@@ -22,10 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.albumexplorer.ui.components.ApplicationErrors
 import com.example.albumexplorer.ui.components.ApplicationScaffold
 import com.example.albumexplorer.ui.components.ContentVisibility
 import com.example.albumexplorer.ui.components.Loading
-import com.example.albumexplorer.ui.feature.details.navigateToDetailsScreen
+import com.example.albumexplorer.ui.feature.album_details.navigateToDetailsScreen
 import com.example.albumexplorer.ui.navigation.LocalNavigationProvider
 
 @Composable
@@ -33,7 +34,6 @@ fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
-    Log.d("Dsfdfd", "sd $state")
     val navController = LocalNavigationProvider.current
     LaunchedEffect(key1 = true) {
         viewModel.effect.collect { effect ->
@@ -58,6 +58,7 @@ fun ProfileContent(
         textToShow = "Profile"
     ) {
         Loading(state = state.isLoading)
+        ApplicationErrors(isError = state.isError, error = state.error)
         ContentVisibility(state.contentScreen()) {
             Column {
                 UserInfoSection(

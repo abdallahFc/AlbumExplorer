@@ -2,9 +2,9 @@ package com.example.albumexplorer.ui.feature.profile
 
 
 import app.cash.turbine.test
-import com.example.albumexplorer.data.remote.EmptyResponseException
-import com.example.albumexplorer.data.remote.NetworkErrorException
-import com.example.albumexplorer.data.remote.ServerErrorException
+import com.example.albumexplorer.domain.util.EmptyResponseException
+import com.example.albumexplorer.domain.util.NetworkErrorException
+import com.example.albumexplorer.domain.util.ServerErrorException
 import com.example.albumexplorer.domain.model.Address
 import com.example.albumexplorer.domain.model.Album
 import com.example.albumexplorer.domain.model.User

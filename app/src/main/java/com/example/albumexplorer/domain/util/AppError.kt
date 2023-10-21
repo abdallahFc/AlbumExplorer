@@ -1,4 +1,4 @@
-package com.example.albumexplorer.data.remote
+package com.example.albumexplorer.domain.util
 
 sealed class AppError(message: String) : Exception(message)
 class NetworkErrorException(message: String) : AppError(message)

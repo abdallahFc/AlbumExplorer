@@ -3,10 +3,10 @@ package com.example.albumexplorer.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.albumexplorer.data.remote.EmptyResponseException
-import com.example.albumexplorer.data.remote.NetworkErrorException
-import com.example.albumexplorer.data.remote.ServerErrorException
-import com.example.albumexplorer.data.remote.UnknownErrorException
+import com.example.albumexplorer.domain.util.EmptyResponseException
+import com.example.albumexplorer.domain.util.NetworkErrorException
+import com.example.albumexplorer.domain.util.ServerErrorException
+import com.example.albumexplorer.domain.util.UnknownErrorException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow

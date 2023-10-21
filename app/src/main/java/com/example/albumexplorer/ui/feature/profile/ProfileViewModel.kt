@@ -28,7 +28,7 @@ class ProfileViewModel @Inject constructor(
         tryToExecute(
             { getRandomUser() },
             ::onGetUserSuccess,
-            ::onGetUser,
+            ::onGetUserError,
             dispatcherProvider.io
         )
     }
@@ -46,12 +46,11 @@ class ProfileViewModel @Inject constructor(
         getAlbums(user.id)
     }
 
-    private fun onGetUser(error: ErrorHandler) {
+    private fun onGetUserError(error: ErrorHandler) {
         _state.update { it.copy(error = error, isError = true, isLoading = false) }
     }
 
     fun getAlbums(id: Int) {
-        _state.update { it.copy(isLoading = true) }
         tryToExecute(
             { getAlbumsUseCase(id) },
             ::onGetAlbumsSuccess,

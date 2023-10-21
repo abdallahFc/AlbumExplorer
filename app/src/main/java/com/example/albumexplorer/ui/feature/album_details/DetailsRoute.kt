@@ -1,4 +1,4 @@
-package com.example.albumexplorer.ui.feature.details
+package com.example.albumexplorer.ui.feature.album_details
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavController
@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.albumexplorer.ui.navigation.Screen
 
-private val ROUTE = Screen.Details.route
+private val ROUTE = Screen.AlbumDetails.route
 
 fun NavController.navigateToDetailsScreen(albumName: String, albumID: String) {
     navigate("$ROUTE/${albumName}/${albumID}")
@@ -35,7 +35,7 @@ class DetailsArgs(savedStateHandle: SavedStateHandle) {
     val albumID: String = checkNotNull(savedStateHandle[ALBUM_ID])
     companion object {
         const val ALBUM_NAME = "albumName"
-        const val ALBUM_ID = "repoName"
+        const val ALBUM_ID = "albumID"
     }
 }
 

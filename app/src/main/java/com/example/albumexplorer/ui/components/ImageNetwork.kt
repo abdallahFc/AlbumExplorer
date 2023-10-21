@@ -1,5 +1,6 @@
 package com.example.albumexplorer.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,6 +17,7 @@ fun ImageNetwork(
     imageUrl: String,
     contentDescription: String = "",
     contentScale: ContentScale = ContentScale.Crop,
+    onImageClick: () -> Unit = {}
 ) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
@@ -26,7 +28,7 @@ fun ImageNetwork(
         placeholder = painterResource(R.drawable.loading),
         contentDescription = contentDescription,
         contentScale = contentScale,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth().clickable(onClick = onImageClick)
     )
 
 
