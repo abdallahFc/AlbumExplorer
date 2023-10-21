@@ -1,4 +1,4 @@
-package com.example.githubviewerapp.ui.composables
+package com.example.albumexplorer.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -26,7 +26,7 @@ import com.example.albumexplorer.R
 
 
 @Composable
-fun NetworkError(state: Boolean,error: String){
+fun ErrorView(state: Boolean, error: String){
     AnimatedVisibility(
         visible = state,
         enter = fadeIn(
