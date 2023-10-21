@@ -5,7 +5,6 @@ import com.example.albumexplorer.ui.base.ErrorHandler
 
 data class ProfileUiState(
     val isLoading: Boolean = false,
-    val id:String="",
     val userName:String="",
     val city: String="",
     val street: String="",

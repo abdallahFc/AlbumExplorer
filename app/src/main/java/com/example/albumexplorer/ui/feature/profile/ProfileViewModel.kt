@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val getAlbumsUseCase: GetAlbumsUseCase,
     private val getRandomUser: GetRandomUserUseCase,
+    private val getAlbumsUseCase: GetAlbumsUseCase,
     private val dispatcherProvider: DispatcherProvider
 ) : BaseViewModel<ProfileUiState, ProfileUiEffect>(ProfileUiState()),ProfileInteractionListener {
     init {
@@ -34,10 +34,8 @@ class ProfileViewModel @Inject constructor(
     }
 
     private fun onGetUserSuccess(user: User) {
-        Log.d("Dsfdfd", "sds $user")
         _state.update {
             it.copy(
-                id = user.id.toString(),
                 userName = user.username,
                 city = user.address.city,
                 zipcode = user.address.zipcode,
@@ -52,7 +50,7 @@ class ProfileViewModel @Inject constructor(
         _state.update { it.copy(error = error, isError = true, isLoading = false) }
     }
 
-    private fun getAlbums(id: Int) {
+    fun getAlbums(id: Int) {
         _state.update { it.copy(isLoading = true) }
         tryToExecute(
             { getAlbumsUseCase(id) },
@@ -63,7 +61,6 @@ class ProfileViewModel @Inject constructor(
     }
 
     private fun onGetAlbumsSuccess(albums: List<Album>) {
-        Log.d("Dsfdfd", "sds $albums")
         _state.update {
             it.copy(
                 albums = albums.map { it.toUiModel() },

@@ -64,9 +64,44 @@ fun ProfileContent(
                     state.userName,
                     state.city + ", " + state.street + ", " + state.suite + ", " + state.zipcode,
                 )
-                AlbumList(albums = state.albums) {
-                    listener.onClickAlbumItem(state.userName, state.id)
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.surface),
+                    contentPadding = PaddingValues(16.dp)
+                ) {
+                    item {
+                        Text(
+                            text = "My Albums",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.primary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Spacer(modifier = Modifier.padding(4.dp))
+                    }
+                    items(state.albums.size) { index ->
+                        val album = state.albums[index]
+                        Divider(
+                            color = MaterialTheme.colorScheme.background
+                        )
+                        Text(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(vertical = 8.dp)
+                                .clickable(onClick = {
+                                    listener.onClickAlbumItem(album.title, album.id)
+                                }),
+                            text = album.title,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.secondary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
                 }
+//                AlbumList(albums = state.albums) {
+//                    listener.onClickAlbumItem(state.userName, state.)
+//                }
             }
         }
     }
