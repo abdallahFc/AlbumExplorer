@@ -16,6 +16,7 @@ import com.example.albumexplorer.ui.util.TestDispatchers
 import io.mockk.coEvery
 import io.mockk.mockk
 import io.mockk.unmockkAll
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -28,12 +29,15 @@ class ProfileViewModelTest {
     private lateinit var getRandomUser: GetRandomUserUseCase
     private lateinit var getAlbumsUseCase: GetAlbumsUseCase
     private lateinit var viewModel: ProfileViewModel
+    @OptIn(ExperimentalCoroutinesApi::class)
     private lateinit var testDispatcher: TestDispatchers
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @get:Rule
     val mainDispatcherRule = MainCoroutineRule()
 
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Before
     fun setup() {
         testDispatcher = TestDispatchers()
